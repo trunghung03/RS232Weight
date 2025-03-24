@@ -17,13 +17,15 @@
 
 #include "SimpleSerial.hpp"
 
+const std::string port = "COM6";
+
 void test_com(std::array<uint8_t, 15>& input) {
 	std::string str = reinterpret_cast<char*>(input.data());
 	str.resize(15);
 
 	try {
 
-		SimpleSerial serial("COM6", 115200);
+		SimpleSerial serial(port, 115200);
 
 		serial.writeString(str);
 
